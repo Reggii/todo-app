@@ -20,31 +20,35 @@ function App() {
 			.catch((err) => {
 				console.error('Error: ', err);
 			})
-
 	}
-	if (typeof window !== 'undefined') { 
-		console.log(todos);
-	 }
+
+	const completeTodo = async (id) => {
+		const data = await fetch(API_BASE + '/todos/complete/' + id)
+			.then((res) => res.json())
+
+		setTodos(todos.map((todo) => {
+			if (todo._id === data._id) {
+				todo.complete = data.complete;
+			}
+			return todo;
+		}))
+	}
 	return (
 		<div className="App">
 			<h1>Hi, $User</h1>
 			<h4>Your Tasks</h4>
 			<div className=" todos">
-				<div className="todo">
+				{todos.map((todo) => (
+				<div className={
+					"todo" + (todo.complete ? "is-complete": "")
+					} key={ todo._id } onClick={ () => completeTodo(todo._id)}>
 					<div className="checkbox"></div>
 
-					<div className="text">File your taxes</div> 
+					<div className="text">{ todo.text }</div> 
 
 					<div className="delete-todo">X</div>
 				</div>
-
-				<div className="todo is-complete">
-					<div className="checkbox"></div>
-					
-					<div className="text">Go to the dentist</div> 
-
-					<div className="delete-todo">X</div>
-				</div>
+				))}
 			</div>
 		</div>
 	);
