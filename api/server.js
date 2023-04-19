@@ -47,7 +47,7 @@ app.get('/todos/complete/:id', async (req, res) => {
     res.json(todo);
 });
 
-app.put('/todo/update/:id', async (req, res) => {
+app.put('/todos/update/:id', async (req, res) => {
 	const todo = await Todo.findById(req.params.id);
 
 	todo.text = req.body.text;
