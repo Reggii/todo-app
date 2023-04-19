@@ -40,7 +40,7 @@ function App() {
 			<div className=" todos">
 				{todos.map((todo) => (
 				<div className={
-					"todo" + (todo.complete ? "is-complete": "")
+					"todo" + (todo.complete ? " is-complete": "")
 					} key={ todo._id } onClick={ () => completeTodo(todo._id)}>
 					<div className="checkbox"></div>
 
