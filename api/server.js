@@ -40,7 +40,11 @@ app.delete('/todos/delete/:id', async (req, res) => {
 app.get('/todos/complete/:id', async (req, res) => {
     const todo = await Todo.findById(req.params.id);
 
-    todo.complete = !todo.complete;
+    if (todo.complete === true) {
+        todo.complete = false;
+    } else {
+        todo.complete = true;
+    }
 
     todo.save();
 
