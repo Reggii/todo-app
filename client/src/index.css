@@ -41,6 +41,41 @@ h4 {
   margin-bottom: 16px;
 }
 
+.addToDo {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.addInput {
+  background-color: #b1ca8d;
+  border: none;
+  outline: none;
+  height: 2em;
+  color: var(--dark);
+  font-size: 1em;
+}
+
+.addInput::placeholder {
+  color: var(--dark);
+  font-size: 1em;
+}
+
+.submitToDo {
+  position: relative;
+  left: 6px;
+  font-weight: 550;
+  padding: 5px;
+  border-radius: 10%;
+  top: -2px;
+  height: 36px;
+}
+
+.submitToDo:hover {
+  background-color: #c8c8c8;
+}
+
 .todo {
   position: relative;
   background-color:var(--gray);
