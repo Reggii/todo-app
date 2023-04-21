@@ -44,17 +44,42 @@ h4 {
 .addToDo {
   display: flex;
   flex-direction: row;
-  position: relative;
+  position: absolute;
   padding-bottom: 15px;
+  top: 18em;
+  z-index: 1000;
+  left: 35%;
+  justify-content: center;
+  background: #8aa07e;
+  border-radius: 20em;
+  width: 22em;
+  height: 6em;
+  background-image: linear-gradient(to bottom, #8aa07e, #68795f);
+  box-shadow: 5px 5px #000000;
+}
+
+.addToDobtn {
+  position: sticky;
+  top: 0;
+  margin-left: 42.5em;
+  scale: -0.9;
+  cursor: pointer;
 }
 
 .addInput {
-  background-color: #b1ca8d;
+  background-color: #ffffff;
+  box-shadow: inset 2px 2px #343a40;
   border: none;
   outline: none;
   height: 2em;
   color: var(--dark);
   font-size: 1em;
+  position: relative;
+  top: 1em;
+  left: 6.6em;
+  margin-left: -6em;
+  padding-left: 5px;
+
 }
 
 .addInput::placeholder {
@@ -68,12 +93,33 @@ h4 {
   font-weight: 550;
   padding: 5px;
   border-radius: 10%;
-  top: -2px;
-  height: 36px;
+  top: 56px;
+  height: 29px;
+  left: -4.699999999999999em;
+  box-shadow: 1px 1px #343a40;
+  background-image: linear-gradient(to bottom, #ffffff, #b9b9b9);
 }
 
 .submitToDo:hover {
-  background-color: #c8c8c8;
+  background-image: linear-gradient(to bottom, #ffffff, #959595);
+}
+
+.cancelToDo {
+  position: relative;
+  font-weight: 550;
+  padding: 5px;
+  border-radius: 10%;
+  top: 56px;
+  height: 28px;
+  left: -3.699999999999999em;
+  background-image: linear-gradient(to bottom, #f53b4b, #c03333);
+  background-color: #d43056;
+  color: floralwhite;
+  box-shadow: 1px 1px #343a40;
+}
+
+.cancelToDo:hover {
+  background-image: linear-gradient(to bottom, #f53b4b, #902323);
 }
 
 .todo {

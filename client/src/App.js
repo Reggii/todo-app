@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
+import plus_light from './plus-light.png'
+import plus_dark from './plus-dark.png'
 
 const API_BASE = 'http://localhost:3000';
 
 function App() {
 	const [todos, setTodos] = useState([]);
-	// const [popup, setPopupActive] = useState(false);
-	// const [newTodo, setNewTodo] = useState('');
+	const [popup, setPopupActive] = useState(false);
+	const [over, setOver] = useState(false);
+	const [newTodo, setNewTodo] = useState('');
 
 	const inputRef = useRef(null);
 
@@ -64,6 +67,9 @@ function App() {
 					<button className='submitToDo' type='submit'
 					onClick={ () => addToDo(inputRef.current.value)}>
 						Submit</button>
+					<button className='cancelToDo'
+					>
+						Cancel</button>
 			</div>
 			<h4>Your Tasks</h4>
 			<div className=" todos">
@@ -82,7 +88,14 @@ function App() {
 					X</div>
 				</div>
 				))}
-
+			</div>
+			<div className='addToDobtn'
+				onMouseOver={() => setOver(true)}
+				onMouseOut={() => setOver(false)}
+				>
+				<img 
+				src={over ? plus_dark : plus_light} alt='add' 
+				onClick={() => setPopupActive(!popup)}></img>
 			</div>
 		</div>
 	);
